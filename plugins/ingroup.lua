@@ -1539,7 +1539,7 @@ if msg.to.type == 'chat' then
         if success == 0 then
            return send_large_msg(receiver, '*Error: Invite link failed* \nReason: Not creator.')
         end
-        send_large_msg(receiver, "Created a new link")
+        send_large_msg(receiver, "لینک جدید ساخته شد برای گرفتن لینک /link را بفرستید")
         data[tostring(msg.to.id)]['settings']['set_link'] = result
         save_data(_config.moderation.data, data)
       end
@@ -1553,10 +1553,10 @@ if msg.to.type == 'chat' then
       end
       local group_link = data[tostring(msg.to.id)]['settings']['set_link']
       if not group_link then
-        return "Create a link using /newlink first !"
+        return "اول با دستور /newlink لینک جدید بساز باو :/ !"
       end
        savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested group link ["..group_link.."]")
-      return "Group link:\n"..group_link
+      return "لینک گروه -_-:\n"..group_link
     end
     if matches[1] == 'setowner' and matches[2] then
       if not is_owner(msg) then
@@ -1600,14 +1600,14 @@ end
       if not is_momod(msg) then
         return "For moderators only!"
       end
-      if tonumber(matches[2]) < 5 or tonumber(matches[2]) > 20 then
+      if tonumber(matches[2]) < 1 or tonumber(matches[2]) > 100 then
         return "Wrong number,range is [5-20]"
       end
       local flood_max = matches[2]
       data[tostring(msg.to.id)]['settings']['flood_msg_max'] = flood_max
       save_data(_config.moderation.data, data)
       savelog(msg.to.id, name_log.." ["..msg.from.id.."] set flood to ["..matches[2].."]")
-      return 'Group flood has been set to '..matches[2]
+      return 'حساسیت تغییر که به  '..matches[2]
     end
 
 if msg.to.type == 'chat' then
