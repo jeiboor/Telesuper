@@ -22,13 +22,18 @@ local function check_member_super(cb_extra, success, result)
 		  lock_link = "no",
           flood = 'yes',
 		  lock_spam = 'yes',
+                  ★★★★★★★★★
 		  lock_sticker = 'no',
 		  member = 'no',
 		  public = 'no',
+                  ★★★★★★★★★
 		  lock_rtl = 'no',
 		  lock_tgservice = 'yes',
 		  lock_contacts = 'no',
-		  strict = 'no'
+		  strict = 'no',
+                  version = '4.9',
+                  ★★★★★★★★★
+                  channel : @blackhatorg
         }
       }
       save_data(_config.moderation.data, data)
@@ -39,7 +44,7 @@ local function check_member_super(cb_extra, success, result)
       end
       data[tostring(groups)][tostring(msg.to.id)] = msg.to.id
       save_data(_config.moderation.data, data)
-	  local text = 'SuperGroup has been added!'
+	  local text = 'گروه اضافه گردید !'
       return reply_msg(msg.id, text, ok_cb, false)
     end
   end
@@ -63,7 +68,7 @@ local function check_member_superrem(cb_extra, success, result)
       end
       data[tostring(groups)][tostring(msg.to.id)] = nil
       save_data(_config.moderation.data, data)
-	  local text = 'SuperGroup has been removed'
+	  local text = 'گروه حذف شد و ربات ان را به رسمیت نمیشناسد!'
       return reply_msg(msg.id, text, ok_cb, false)
     end
   end
@@ -115,10 +120,12 @@ end
 --Get and output info about supergroup
 local function callback_info(cb_extra, success, result)
 local title ="Info for SuperGroup: ["..result.title.."]\n\n"
-local admin_num = "Admin count: "..result.admins_count.."\n"
-local user_num = "User count: "..result.participants_count.."\n"
-local kicked_num = "Kicked user count: "..result.kicked_count.."\n"
-local channel_id = "ID: "..result.peer_id.."\n"
+local admin_num = "تعداد ادمین ها: "..result.admins_count.."\n"
+local user_num = "تعداد کاربران: "..result.participants_count.."\n"
+local kicked_num = "تعداد افراد اخراج شده: "..result.kicked_count.."\n"
+local channel_id = "ایدی: "..result.peer_id.."\n"
+local rank = "رابطه کاربری : نامشخص
+local version = ورژن : 4.9
 if result.username then
 	channel_username = "Username: @"..result.username
 else
